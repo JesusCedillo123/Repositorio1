@@ -1,0 +1,3 @@
+".\Objects\Apuntadores_Menu1.obj" 
+TO ".\Objects\Apuntadores" 
+PRINT(".\Listings\Apuntadores.m51") RAMSIZE(256) 

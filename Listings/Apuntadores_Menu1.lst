@@ -1,0 +1,72 @@
+C51 COMPILER V9.60.0.0   APUNTADORES_MENU1                                                 09/30/2022 13:22:07 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE APUNTADORES_MENU1
+OBJECT MODULE PLACED IN .\Objects\Apuntadores_Menu1.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Apuntadores_Menu1.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\
+                    -Listings\Apuntadores_Menu1.lst) TABS(2) OBJECT(.\Objects\Apuntadores_Menu1.obj)
+
+line level    source
+
+   1          #include<REG52.h>
+   2          void rota (int ciclos);
+   3          //declaracion de funciones
+   4          void delay(int x);
+   5          int rota_1[8]={0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80};
+   6          int rota_2[8]={0x01, 0x04, 0x10, 0x02, 0x40,  0x08,  0x20, 0x80};
+   7          int rota_3[4]={0x01, 0x04, 0x10, 0x40};
+   8          int rota_4[4]={0x40, 0x10, 0x04, 0x01};
+   9          int rota_5[4]={0x02, 0x08, 0x20, 0x80};
+  10          int rota_6[4]={0x80, 0x20, 0x08, 0x02};
+  11          int rota_7[8]={0x01,0x80, 0x02,0x40, 0x04,0x20, 0x08, 0x10};
+  12          
+  13          int x;
+  14          int *ptr;
+  15          
+  16          void main(){
+  17   1        while(1){
+  18   2          delay(1000);
+  19   2          switch (P1){
+  20   3          case 0: P3=0x00;break;
+  21   3          case 1: ptr=&rota_1[0]; rota(8); break;
+  22   3          case 2: ptr=&rota_2[0]; rota(8); break;
+  23   3          case 3: ptr=&rota_3[0]; rota(4); break;
+  24   3          case 4: ptr=&rota_4[0]; rota(4); break;
+  25   3          case 5: ptr=&rota_5[0]; rota(4); break;
+  26   3          case 6: ptr=&rota_6[0]; rota(4); break;
+  27   3          case 7: ptr=&rota_7[0]; rota(8); break;
+  28   3          default: P3=0x00;break;
+  29   3          } 
+  30   2        }
+  31   1      }
+  32          void rota(int ciclos )
+  33          {
+  34   1        int j;
+  35   1        for (j=0; j<ciclos; j++){
+  36   2        P3=*ptr;
+  37   2          ptr=ptr+1;
+  38   2          delay(1000);
+  39   2        }
+  40   1      }
+  41            void delay(int x){
+  42   1        int I;
+  43   1        
+  44   1        for(I=0;I<x;I++){
+  45   2        }
+  46   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    234    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     85       4
+C51 COMPILER V9.60.0.0   APUNTADORES_MENU1                                                 09/30/2022 13:22:07 PAGE 2   
+
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
